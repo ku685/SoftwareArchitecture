@@ -1,0 +1,123 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>MARKS PAGE</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous" />
+</head>
+<style>
+
+    .card-primary{
+        width: 80%;
+        margin-left: 120px;
+        box-shadow: 3px 14px 32px 9px gray;
+    }
+
+</style>
+
+<body style=" background-color: rgb(0 123 255 / 25%);">
+<div style="background-color: white">
+    <div th:replace="fragments/header :: header"></div></div>
+<div class="col-sm-12" style="margin: 100px "  id="xyz">
+    <div class="card card-primary"   >
+        <div class="card-header" style = "background-color:cornflowerblue ; " >
+            <h3 class="card-title">Manage Questions</h3>
+            <div class="card-tools" >
+                <button type="button" class="btn" data-card-widget="collapse" style="align-content: center ;"><i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-question">
+                Add Question
+            </button>
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modal-question">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form th:action="@{/organiser/question/add}" method="post">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Question</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+<!--                    <input type="hidden" class="form-control" name="exam_id">-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="exam_id" placeholder="Enter EXAMID" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="question" placeholder="Enter your question" required>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-1">
+                            <input type="radio" name="answer" value="1" checked="checked">
+                        </div>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" name="option[]" placeholder="Option 1" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-1">
+                            <input type="radio" name="answer" value="2">
+                        </div>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" name="option[]" placeholder="Option 2" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-1">
+                            <input type="radio" name="answer" value="3">
+                        </div>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" name="option[]" placeholder="Option 3" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-1">
+                            <input type="radio" name="answer" value="4">
+                        </div>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" name="option[]" placeholder="Option 4" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+
+
+
+</body>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+<script src="/webjars/AdminLTE/3.0.0/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/webjars/AdminLTE/3.0.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/webjars/AdminLTE/3.0.0/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/webjars/AdminLTE/3.0.0/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<!-- jQuery -->
+<script src="/webjars/AdminLTE/3.0.0/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/webjars/AdminLTE/3.0.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="/webjars/AdminLTE/3.0.0/dist/js/adminlte.js"></script>
+
+</html>
